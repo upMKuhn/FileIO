@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common\Burp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\NiceHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Tree.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\DataSource\DataSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\DataSource\FileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\DataSource\WindowsFilesys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\FileTypes\File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\FileTypes\FileTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\FileTypes\TextFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\private\__IO_Dependencies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\IO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\Path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\VFS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\VPath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\DataSource\MockFileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\StringBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IO\DataSource\WindowsFilesys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\FileTypes\File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\FileTypes\TextFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\Path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\VFS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\VPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\DataSource\MockFileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FrameByFrame.props" />
+  </ItemGroup>
+</Project>
