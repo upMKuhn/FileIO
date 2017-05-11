@@ -1,6 +1,6 @@
 # FileIO
 
-Virtual filesystem library, with the aim to create a platform independent solution. 
+My Virtual filesystem library.
 
 implemented:
   1. Single file system
