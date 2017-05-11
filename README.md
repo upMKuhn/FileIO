@@ -2,11 +2,12 @@
 
 My Virtual filesystem library.
 
-implemented:
-  1. Single file system
-  2. Decoupled platform
-  3. Windows File system
+Done :
+  * Virtual file system
+  * Decoupled platforms
+  * Windows File system support
+  * Stub file system
 
-ToDo: 
+To Do: 
   1. Add single file filesystem support zip etc.
   2. Extend Linux support 
