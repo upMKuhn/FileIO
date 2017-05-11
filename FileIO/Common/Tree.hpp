@@ -4,12 +4,12 @@
 #ifndef TREE_HPP
 #define TREE_HPP
 
-namespace FileIO::Common {
+namespace FileIO { namespace Common {
 	template <typename TValue>
-	class TNode 
+	class TNode
 	{
 		TNode() {}
-		TNode(TValue val) : value(val){}
+		TNode(TValue val) : value(val) {}
 		~TNode() {}
 
 		TNode<TValue>& parent;
@@ -22,6 +22,5 @@ namespace FileIO::Common {
 	private:
 		BurpPointer<TValue> value;
 	};
-
-}
+}}
 #endif // !TREE_HPP

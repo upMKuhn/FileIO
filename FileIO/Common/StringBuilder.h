@@ -3,7 +3,7 @@
 #include <string>
 #include <deque>
 
-namespace FileIO::Common {
+namespace FileIO { namespace Common {
 	// Subset of http://msdn.microsoft.com/en-us/library/system.text.stringbuilder.aspx
 	//code from http://www.codeproject.com/Articles/647856/Performance-Improvement-with-the-StringBuilde
 
@@ -113,4 +113,4 @@ namespace FileIO::Common {
 		}
 
 	}; // class StringBuilder
-}
+}}
