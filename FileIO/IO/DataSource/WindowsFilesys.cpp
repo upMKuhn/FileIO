@@ -4,9 +4,9 @@
 #include <ShlObj.h>
 #include <Shlwapi.h>
 
+using namespace FileIO::Common;
 namespace FileIO::IO {
-	using namespace Common;
-
+	
 #ifdef WINDOWS
 #ifndef UNIT_TESTS
 	FileSystem* FileSystem::get()
