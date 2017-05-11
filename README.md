@@ -1,6 +1,6 @@
 # FileIO
 
-A virtual directory library ... 
+Virtual filesystem library, with the aim to create a platform independent solution. 
 
 implemented:
   1. Single file system
