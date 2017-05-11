@@ -132,7 +132,8 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
+      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
+xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">
@@ -143,7 +144,8 @@
       <PreprocessorDefinitions>UNIT_TESTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
+      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
+xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,7 +155,8 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
+      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
+xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UnitTests|x64'">
@@ -164,7 +167,8 @@
       <PreprocessorDefinitions>UNIT_TESTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
+      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
+xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -180,7 +184,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
+      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
+xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -196,7 +201,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
+      <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
+xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
