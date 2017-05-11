@@ -202,6 +202,7 @@
   <ItemGroup>
     <ClInclude Include="Common\Burp.h" />
     <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\Dependencies\Windows\dirent.h" />
     <ClInclude Include="Common\NiceHelper.h" />
     <ClInclude Include="Common\Platform.h" />
     <ClInclude Include="Common\StringBuilder.h" />
