@@ -10,7 +10,9 @@ namespace FileIO::Common {
 	struct is_pointer<T*> { static const bool value = true; };
 
 	template <typename T>
-	///This class is used best for classes and structs... 
+	
+	/// This class is a smarter pointer. It deletes the content once this class gets destoryed.
+	/// hence the name burp!
 	class Burp
 	{
 
