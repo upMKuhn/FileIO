@@ -1,8 +1,8 @@
-#include "IO.h"
+#include "FileIO.h"
 #include "private\__IO_Dependencies.h"
 using namespace FileIO::Common;
 
-namespace FileIO::IO
+namespace FileIO
 {
 
 	VFS* _vfs_instance = nullptr;

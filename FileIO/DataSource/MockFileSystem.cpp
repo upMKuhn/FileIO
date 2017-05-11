@@ -1,7 +1,7 @@
 #include "MockFileSystem.h"
-class FileIO::IO::Path;
-class FileIO::IO::File;
-namespace FileIO::IO
+class FileIO::Path;
+class FileIO::File;
+namespace FileIO
 {
 
 	std::map<std::string, bool> MockFileSystem::paths;

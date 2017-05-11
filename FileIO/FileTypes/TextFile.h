@@ -1,6 +1,6 @@
 #pragma once
 #include "FileTypes.h"
-namespace FileIO::IO {
+namespace FileIO {
 	class TextFile : public File
 	{
 	public:

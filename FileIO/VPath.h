@@ -1,7 +1,7 @@
 #pragma once
-#include <FileIO\IO\IO.h>
+#include <FileIO\FileIO.h>
 
-namespace FileIO::IO {
+namespace FileIO {
 
 	//Virtual Path
 	class VPath : public Path
@@ -25,7 +25,7 @@ namespace FileIO::IO {
 
 		bool inline IsRoot() { return m_root; }
 	protected:
-		IO::Path resolvePath();
+		Path resolvePath();
 
 		void setPath(std::string path) override;
 

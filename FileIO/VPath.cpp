@@ -1,8 +1,8 @@
-#include "IO.h"
+#include "FileIO.h"
 
 using namespace FileIO::Common;
 
-namespace FileIO::IO {
+namespace FileIO {
 
 	bool VPath::exsist()
 	{
@@ -29,7 +29,7 @@ namespace FileIO::IO {
 			.append(right.m_path[0] == '\\' ? right.m_path.substr(1) : right);
 	}
 
-	IO::Path FileIO::IO::VPath::resolvePath()
+	Path FileIO::VPath::resolvePath()
 	{
 		Burp<FileSystem*> fs(FileSystem::get());
 		Path path = VFS::Get()->Resolve(*this);

@@ -1,11 +1,11 @@
 
-#include <IO\IO.h>
+#include <FileIO.h>
 #include <Windows.h>
 #include <ShlObj.h>
 #include <Shlwapi.h>
 
 using namespace FileIO::Common;
-namespace FileIO::IO {
+namespace FileIO {
 	
 #ifdef WINDOWS
 #ifndef UNIT_TESTS

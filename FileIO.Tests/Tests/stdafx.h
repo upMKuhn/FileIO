@@ -8,8 +8,8 @@
 #include "targetver.h"
 // Headers for CppUnitTest
 #include <FileIO\Common\Common.h>
-#include <FileIO\IO\IO.h>
-using namespace FileIO::IO;
+#include <FileIO\FileIO.h>
+using namespace FileIO;
 using namespace std;
 
 #include "CppUnitTest.h"

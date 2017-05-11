@@ -2,7 +2,7 @@
 using namespace FileIO::Common;
 
 
-namespace FileIO::IO {
+namespace FileIO {
 
 	TextFile::TextFile()
 	{
@@ -24,7 +24,7 @@ namespace FileIO::IO {
 		return fs->writeTextFile(resolvePath(), m_fcontent);
 	}
 
-	uint64_t FileIO::IO::TextFile::size()
+	uint64_t FileIO::TextFile::size()
 	{
 		return m_fcontent.size();
 	}

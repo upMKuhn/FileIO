@@ -1,7 +1,7 @@
 #include "FileTypes.h"
 using namespace FileIO::Common;
 
-namespace FileIO::IO
+namespace FileIO
 {
 	File::operator const wchar_t*() { return m_wpath.c_str(); }
 	File::operator const char*() { return m_path.c_str();}

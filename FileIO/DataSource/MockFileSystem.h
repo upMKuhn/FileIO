@@ -1,10 +1,10 @@
 #pragma once
-#include <FileIO\IO\IO.h>
+#include <FileIO\FileIO.h>
 
-class FileIO::IO::Path;
-class FileIO::IO::File;
+class FileIO::Path;
+class FileIO::File;
 
-namespace FileIO::IO {
+namespace FileIO {
 	
 	class MockFileSystem : public FileSystem
 	{

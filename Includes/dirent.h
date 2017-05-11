@@ -22,7 +22,7 @@
 #define _AMD64_
 #endif
 
-#include <stdio.h>
+#include <stdIO.h>
 #include <stdarg.h>
 #include <windef.h>
 #include <winbase.h>

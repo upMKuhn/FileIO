@@ -1,6 +1,6 @@
 #pragma once
-namespace FileIO::IO {
-	#include <FileIO\IO\FileTypes\FileTypes.h>
+namespace FileIO {
+	#include <FileIO\FileTypes\FileTypes.h>
 	#include <streambuf>
 	class VPath;
 	class File : public VPath

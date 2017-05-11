@@ -1,8 +1,8 @@
-#include "IO.h"
+#include "FileIO.h"
 
 using namespace FileIO::Common;
 
-namespace FileIO::IO {
+namespace FileIO {
 
 	void Path::setPath(std::wstring p)
 	{

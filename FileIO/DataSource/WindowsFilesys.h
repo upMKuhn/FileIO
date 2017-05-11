@@ -1,12 +1,12 @@
 #pragma once
-#include <FileIO\IO\IO.h>
+#include <FileIO\FileIO.h>
 //INCLUDE LIB !!! Shlwapi.lib
-class FileIO::IO::Path;
-class FileIO::IO::File;
+class FileIO::Path;
+class FileIO::File;
 
 
 
-namespace FileIO::IO {
+namespace FileIO {
 	class WindowsFilesys : public FileSystem {
 	public:
 

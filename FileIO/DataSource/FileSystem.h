@@ -1,8 +1,8 @@
 #pragma once
 #include <FileIO\Common\Common.h>
-#include <FileIO\IO\IO.h>
+#include <FileIO\FileIO.h>
 
-namespace FileIO::IO
+namespace FileIO
 {
 	class Path;
 	class File;

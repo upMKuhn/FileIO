@@ -1,7 +1,7 @@
 #pragma once
-#include "IO.h"
+#include "FileIO.h"
 #include "VPath.h"
-namespace FileIO::IO
+namespace FileIO
 {
 	class Path;
 	class VPath;
