@@ -4,59 +4,60 @@ class FileIO::File;
 namespace FileIO
 {
 
-	std::map<std::string, bool> MockFileSystem::paths;
-	std::map<std::string, bool> MockFileSystem::m_File;
+	std::map<std::string, bool> MockFileSystem::m_paths;
+	std::map<std::string, bool> MockFileSystem::m_isFile;
 	std::map<std::string, std::vector<std::string>> MockFileSystem::dirFiles;
 	std::map<std::string, std::string> MockFileSystem::fileContent;
 
-#ifdef UNIT_TESTS
-	FileSystem* FileSystem::get()
+	void FileIO::MockFileSystem::reset()
 	{
-		return new MockFileSystem();
-	}
-#endif
-
-	inline void MockFileSystem::MarkAsExsist(Path path, bool mark, bool isFile)
-	{
-		paths[path] = mark;
-		m_File[path] = isFile;
+		m_paths.clear();
+		m_isFile.clear();
+		dirFiles.clear();
+		fileContent.clear();
 	}
 
-	inline bool MockFileSystem::exsists(Path path)  { return paths[path]; }
-	inline std::string MockFileSystem::platform()  { return "Mock"; };
-	inline bool MockFileSystem::isDirectory(Path path)  { return exsists(path) && !m_File[path]; }
-
-	inline bool MockFileSystem::mkDir(Path path) 
+	void MockFileSystem::MarkAsExsist(Path path, bool mark, bool isFile)
 	{
-		paths[path] = true;
-		m_File[path] = false;
+		m_paths[path] = mark;
+		m_isFile[path] = isFile;
+	}
+
+	bool MockFileSystem::exsists(Path path)  { return m_paths[path]; }
+	std::string MockFileSystem::platform()  { return "Mock"; };
+	bool MockFileSystem::isDirectory(Path path)  { return exsists(path) && !m_isFile[path]; }
+
+	bool MockFileSystem::mkDir(Path path) 
+	{
+		m_paths[path] = true;
+		m_isFile[path] = false;
 		dirFiles[path] = std::vector<std::string>();
 		return true;
 	}
 
-	inline bool MockFileSystem::mkFile(Path path) 
+	bool MockFileSystem::mkFile(Path path) 
 	{
-		paths[path] = true;
-		m_File[path] = true;
+		m_paths[path] = true;
+		m_isFile[path] = true;
 		std::vector<std::string> fd = dirFiles[path];
 		fd.push_back(path);
 		dirFiles[path] = fd;
 		return true;
 	}
 
-	inline bool MockFileSystem::deleteFile(Path path) 
+	bool MockFileSystem::deleteFile(Path path) 
 	{
-		bool val = paths[path];
-		paths[path] = false;
+		bool val = m_paths[path];
+		m_paths[path] = false;
 		return val;
 	}
 
-	inline bool MockFileSystem::resolve(Path& path) 
+	bool MockFileSystem::resolvePath(Path& path) 
 	{
 		return true;
 	}
 
-	inline std::vector<File> MockFileSystem::lsFiles(Path path) 
+	std::vector<File> MockFileSystem::lsFiles(Path path) 
 	{
 		std::vector<File> result;
 
@@ -68,19 +69,19 @@ namespace FileIO
 		return result;
 	}
 
-	inline bool MockFileSystem::fileExsists(Path& p)  { return paths[p] && m_File[p]; }
-	inline bool MockFileSystem::dirExsists(Path& p)  { return paths[p] && !m_File[p]; }
+	bool MockFileSystem::fileExsists(Path& p)  { return m_paths[p] && m_isFile[p]; }
+	bool MockFileSystem::dirExsists(Path& p)  { return m_paths[p] && !m_isFile[p]; }
 
-	inline void MockFileSystem::getFileInfo(File& path) { path.size(0); };
-	inline File MockFileSystem::getFileInfo(Path path) { File f(path.tostring(), 0); return f; };
+	void MockFileSystem::getFileInfo(File& path) { path.size(0); };
+	File MockFileSystem::getFileInfo(Path path) { File f(path.tostring(), 0); return f; };
 
-	inline void MockFileSystem::MockTextFile(Path p, std::string container)
+	void MockFileSystem::MockTextFile(Path p, std::string container)
 	{
 		mkFile(p);
 		fileContent[p] = container;
 	}
 
-	inline bool MockFileSystem::readTextFileToEnd(Path p, std::string& container) 
+	bool MockFileSystem::readTextFileToEnd(Path p, std::string& container) 
 	{
 		container.empty();
 		container.resize(fileContent[p].size());
@@ -88,7 +89,7 @@ namespace FileIO
 		return true;
 	}
 
-	inline bool MockFileSystem::writeTextFile(Path p, std::string& content) 
+	bool MockFileSystem::writeTextFile(Path p, std::string& content) 
 	{
 		mkFile(p);
 		MockTextFile(p, content);

@@ -20,7 +20,7 @@ namespace FileIO::Common {
 		inline TValue Append();
 
 	private:
-		Burp<TValue> value;
+		BurpPointer<TValue> value;
 	};
 
 }

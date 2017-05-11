@@ -23,6 +23,10 @@ namespace OpenCLFrameTests
 			VFS::Get()->Mount(BASE_VDIR, BASE_DIR);
 			filePath = Path::Combine(BASE_DIR, "temp.tmp");
 		}
+
+		TEST_METHOD_CLEANUP(TextFileTests_Cleanup) {
+			mockfs->reset();
+		}
 		
 		TEST_METHOD(TextFileCast_ToCString_ReturnsContent)
 		{
@@ -31,7 +35,8 @@ namespace OpenCLFrameTests
 
 			TextFile tfile(VTEST_FILE);
 			tfile.ReadToEnd();
-			Assert::AreEqual(TEXT_CONTENT, tfile);
+			const char* content = tfile;
+			Assert::IsTrue(strcmp(TEXT_CONTENT, content));
 		}
 
 		TEST_METHOD(TextFileCast_WhenAsFilePointer_ReturnsFilePath)

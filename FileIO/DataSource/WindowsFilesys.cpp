@@ -7,15 +7,6 @@
 using namespace FileIO::Common;
 namespace FileIO {
 	
-#ifdef WINDOWS
-#ifndef UNIT_TESTS
-	FileSystem* FileSystem::get()
-	{
-		return new WindowsFilesys();
-	}
-#endif
-#endif
-
 	bool WindowsFilesys::exsists(Path path)
 	{
 		if (path.isFile()) return fileExsists(path);
@@ -24,7 +15,7 @@ namespace FileIO {
 
 	bool WindowsFilesys::dirExsists(Path& p)
 	{
-		resolve(p);
+		resolvePath(p);
 		DWORD ftyp = GetFileAttributesA(p);
 		DWORD error = GetLastError();
 		if (ftyp == INVALID_FILE_ATTRIBUTES)
@@ -38,13 +29,13 @@ namespace FileIO {
 
 	bool WindowsFilesys::fileExsists(Path & p)
 	{
-		resolve(p);
+		resolvePath(p);
 		return PathFileExists(p) == TRUE;
 	}
 	
 	bool WindowsFilesys::mkDir(Path path)
 	{
-		bool success = resolve(path);
+		bool success = resolvePath(path);
 		if (!dirExsists(path) && success)
 			success &= CreateDirectory(path, NULL) == TRUE;
 		return success;
@@ -52,7 +43,7 @@ namespace FileIO {
 
 	bool WindowsFilesys::mkFile(Path path)
 	{
-		resolve(path);
+		resolvePath(path);
 		HANDLE hfile = CreateFile(path, GENERIC_ALL, 0, NULL,
 			CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 		bool success = hfile != INVALID_HANDLE_VALUE;
@@ -71,9 +62,9 @@ namespace FileIO {
 	bool WindowsFilesys::readTextFileToEnd(Path p, std::string& container)
 	{
 		FILE* file;
-		resolve(p);
+		resolvePath(p);
 		fopen_s(&file, p, "rb");
-		Burp<FILE*> fp(file, fclose);
+		BurpPointer<FILE*> fp(file, fclose);
 
 		if (file == NULL)
 			return false;
@@ -88,13 +79,13 @@ namespace FileIO {
 	bool WindowsFilesys::writeTextFile(Path p, std::string& content)
 	{
 		FILE* file;
-		resolve(p);
+		resolvePath(p);
 		fopen_s(&file, p, "w");
 
 		if (file == NULL)
 			return false;
 		
-		Burp<FILE*> fp(file, fclose); // close on finallay
+		BurpPointer<FILE*> fp(file, fclose); // close on finallay
 		fwrite(content.c_str(), sizeof(content[0]), content.size(), file);
 		fclose(file);
 		return true;
@@ -114,16 +105,16 @@ namespace FileIO {
 
 	bool WindowsFilesys::deleteFile(Path path)
 	{
-		resolve(path);
+		resolvePath(path);
 		return DeleteFile(path) == TRUE;
 	}
 
 	bool WindowsFilesys::isDirectory(Path path)
 	{
-		return PathIsDirectory(path);
+		return PathIsDirectory(path) == 1;
 	}
 
-	bool WindowsFilesys::resolve(Path & path)
+	bool WindowsFilesys::resolvePath(Path & path)
 	{
 		bool success = false;
 		WCHAR resolved[MAX_PATH];
@@ -139,24 +130,24 @@ namespace FileIO {
 	void WindowsFilesys::getFileInfo(File & file)
 	{
 		WIN32_FIND_DATA ffd;
-		resolve(file);
+		resolvePath(file);
 		FindFirstFile(file, &ffd);
 
 		file.size(ffd.nFileSizeLow >= 0
 			? ffd.nFileSizeLow
-			: (ffd.nFileSizeHigh * (MAXDWORD + 1)) + ffd.nFileSizeLow
+			: (ffd.nFileSizeHigh * (MAXDWORD)) + ffd.nFileSizeLow
 		);
 	}
 
 	File WindowsFilesys::getFileInfo(Path path)
 	{
 		WIN32_FIND_DATA ffd;
-		resolve(path);
+		resolvePath(path);
 		FindFirstFile(path, &ffd);
 		File file(ffd.cFileName);
 		file.size(ffd.nFileSizeLow >= 0 
 			? ffd.nFileSizeLow 
-			: (ffd.nFileSizeHigh * (MAXDWORD + 1)) + ffd.nFileSizeLow
+			: (ffd.nFileSizeHigh * (MAXDWORD)) + ffd.nFileSizeLow
 		);
 		return file;
 	}
@@ -165,7 +156,7 @@ namespace FileIO {
 	{
 		WIN32_FIND_DATA ffd;
 		std::vector<File> returnable;
-		resolve(dir);
+		resolvePath(dir);
 		if (!dirExsists(dir)) 
 			return returnable;
 		
@@ -176,7 +167,7 @@ namespace FileIO {
 			do
 				returnable.push_back(File(VPath::Combine(dir.tostring(), ffd.cFileName), ffd.nFileSizeLow >= 0
 					? ffd.nFileSizeLow
-					: (ffd.nFileSizeHigh * (MAXDWORD + 1)) + ffd.nFileSizeLow)
+					: (ffd.nFileSizeHigh * (MAXDWORD)) + ffd.nFileSizeLow)
 				);
 			while (FindNextFile(hFind, &ffd) != 0);
 			FindClose(hFind);

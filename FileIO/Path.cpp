@@ -21,21 +21,21 @@ namespace FileIO {
 	bool Path::exsist()
 	{
 		if (m_path == "") return false;
-		Burp<FileSystem*> fs = FileSystem::get();
+		BurpPointer<FileSystem*> fs = FileSystem::get();
 		return fs->exsists(*this);
 	}
 
 	bool Path::isFile()
 	{
 		size_t lastDot = m_path.find_last_of('.');
-		size_t lastSlash = m_path.find_last_of(SLASH);
+		size_t lastSlash = m_path.find_last_of(FILEIO_SLASH);
 		return lastSlash < lastDot && lastDot != m_path.npos;
 	}
 
 	std::string Path::filename()
 	{
 		if (!isFile()) return "";
-		return m_path.substr(m_path.find_last_of(SLASH)+1);
+		return m_path.substr(m_path.find_last_of(FILEIO_SLASH)+1);
 	}
 
 	std::string Path::filenameWihtoutExtension()
@@ -57,7 +57,7 @@ namespace FileIO {
 		std::string newPath = m_path;
 		if (isFile() && m_path.size() > 0)
 		{
-			size_t slash = m_path.find_last_of(SLASH);
+			size_t slash = m_path.find_last_of(FILEIO_SLASH);
 			newPath = newPath.substr(0, max(slash, 1));
 		}
 		return newPath;
@@ -72,4 +72,14 @@ namespace FileIO {
 		return Path(builder.ToString());
 	}
 	
+	bool Path::equals(Path& other) {
+		using namespace std;
+		if (other.empty() || this->empty())
+		return other.empty() && this->empty();
+
+		wstring strOther = stringToLower(other.towstring());
+		wstring strMe = stringToLower(other.towstring());
+		return strMe.compare(strOther);
+	}
+
 }

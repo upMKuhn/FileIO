@@ -6,7 +6,7 @@ namespace FileIO
 	class Path;
 	class VPath;
 
-	class VFS {
+	class FILEIO_API VFS {
 
 	public:
 		VFS();

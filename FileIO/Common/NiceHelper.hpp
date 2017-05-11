@@ -7,13 +7,13 @@ namespace FileIO::Common {
 
 	inline std::string removeTrailingSlash(std::string str)
 	{
-		size_t end = str.find_last_of(SLASH);
+		size_t end = str.find_last_of(FILEIO_SLASH);
 		return end == str.size() - 1 && end != 0 ? str.substr(0, str.size() - 1) : str;
 	}
 
 	inline std::wstring removeTrailingSlash(std::wstring str)
 	{
-		size_t end = str.find_last_of(SLASH);
+		size_t end = str.find_last_of(FILEIO_SLASH);
 		return end == str.size() - 1 && end != 0 ? str.substr(0, str.size() - 1) : str;
 	}
 
@@ -22,6 +22,16 @@ namespace FileIO::Common {
 	{
 		std::cout << "Press Any Key to continue ... \n";
 		getchar();
+	}
+
+	inline std::string stringToLower(std::string& str) {
+		std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+		return str;
+	}
+
+	inline std::wstring stringToLower(std::wstring& str) {
+		std::transform(str.begin(), str.end(), str.begin(), ::towlower);
+		return str;
 	}
 
 }

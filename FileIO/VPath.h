@@ -4,7 +4,7 @@
 namespace FileIO {
 
 	//Virtual Path
-	class VPath : public Path
+	class FILEIO_API VPath : public Path
 	{
 	public:
 		VPath() {}

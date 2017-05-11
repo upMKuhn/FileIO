@@ -14,13 +14,13 @@ namespace FileIO {
 
 	bool TextFile::ReadToEnd()
 	{
-		Burp<FileSystem*> fs(FileSystem::get());
+		BurpPointer<FileSystem*> fs(FileSystem::get());
 		return fs->readTextFileToEnd(resolvePath(), m_fcontent);
 	}
 
 	bool TextFile::Save()
 	{
-		Burp<FileSystem*> fs = FileSystem::get();
+		BurpPointer<FileSystem*> fs = FileSystem::get();
 		return fs->writeTextFile(resolvePath(), m_fcontent);
 	}
 

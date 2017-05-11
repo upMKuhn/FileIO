@@ -53,19 +53,23 @@ namespace FileIO
 	{
 		Path rPath = "";
 		std::vector<Path> list = ResolveDirectory(virtualPath);
-		Burp<FileSystem*> fs = FileSystem::get();
+		BurpPointer<FileSystem*> filesystem = FileSystem::get();
 
 		for (Path& path : list)
-			if (fs->exsists(path))
+			if (filesystem->exsists(path))
 			{
 				rPath = path;
 				break;
 			}
 
-		//Path not pointing to known file or folder
-		if (rPath == Path("")) rPath = list[0];
+		if (rPath == Path("") && list.size() > 0) {
+			rPath = list[0];
+			filesystem->resolvePath(rPath);
+		}
+		else if (rPath == Path("")) {
+			rPath = virtualPath;
+		}
 
-		fs->resolve(rPath);
 		return rPath;
 	}
 	

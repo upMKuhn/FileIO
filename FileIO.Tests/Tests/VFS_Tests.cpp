@@ -10,20 +10,26 @@ namespace OpenCLFrameTests
 	TEST_CLASS(VFS_Tests)
 	{
 	public:
-		const char * BASE_DIR = "%temp%\\unitTests\\";
-		const char * SUB_BASE_DIR = "%temp%\\unitTests\\subDir\\";
+		const char * BASE_DIR = "C:\\unitTests";
+		const wchar_t * L_BASE_DIR = L"C:\\unitTests";
+		const char * SUB_BASE_DIR = "C:\\unitTests\\subDir";
 
-		Burp<FileSystem*> fs;
+		BurpPointer<FileSystem*> fs;
 		MockFileSystem* mockfs;
 
-		TEST_METHOD_INITIALIZE(ReCreateMocks)
+		TEST_METHOD_INITIALIZE(VFS_Tests_INIT)
 		{
+			FileSystem::setMode(FileSystem::FS_MODE_MEMORY);
 			mockfs = ((MockFileSystem*)FileSystem::get());
-
 			mockfs->mkDir(BASE_DIR);
 			mockfs->mkDir(SUB_BASE_DIR);
 			fs = FileSystem::get();
 		}
+
+		TEST_METHOD_CLEANUP(VFS_Tests_DONE) {
+			mockfs->reset();
+		}
+
 
 		TEST_METHOD(Mount_DirectoryOneToOne_ReturnsCorrectPhysicalPath)
 		{
@@ -32,7 +38,17 @@ namespace OpenCLFrameTests
 			VFS& vfs = *VFS::Get();
 
 			vfs.Mount("\\temp", BASE_DIR);
-			Assert::AreEqual(Path(BASE_DIR).c_str() ,vfs.Resolve("\\temp").c_str());
+			const char* resolvedPath = vfs.Resolve("\\temp").c_str();
+			Assert::AreEqual(L_BASE_DIR, vfs.Resolve("\\temp").wc_str());
+		}
+
+		TEST_METHOD(Resolve_whenInvalid_ReturnsInput)
+		{
+			VPath virtualPath("\\invalid\\VPath");
+			VFS& vfs = *VFS::Get();
+			vfs.Mount("\\temp", BASE_DIR);
+
+			Assert::AreEqual(L"\\invalid\\VirtualPath", vfs.Resolve("\\invalid\\VirtualPath\\").wc_str());
 		}
 
 		TEST_METHOD(Mount_OneVirtualPathToMultiplePhysicalPaths_CanResolveToBothPhysicalPaths)
@@ -51,8 +67,8 @@ namespace OpenCLFrameTests
 			Path PathTwo(SUB_BASE_DIR);
 			mockfs->mkDir(PathTwo.Combine("PathTwo"));
 
-			Assert::AreEqual(PathOne.c_str(), vfs.Resolve("\\temp\\PathOne").c_str());
-			Assert::AreEqual(PathTwo.c_str(), vfs.Resolve("\\temp\\PathTwo").c_str());
+			Assert::AreEqual(PathOne.wc_str(), vfs.Resolve("\\temp\\PathOne").wc_str());
+			Assert::AreEqual(PathTwo.wc_str(), vfs.Resolve("\\temp\\PathTwo").wc_str());
 		}
 
 
@@ -63,7 +79,7 @@ namespace OpenCLFrameTests
 
 			VFS& vfs = *VFS::Get();
 			vfs.Mount("\\temp", BASE_DIR);
-			Assert::IsTrue(EXPECTED_FILE == vfs.Resolve("\\temp\\temp.tmp"));
+			Assert::AreEqual(EXPECTED_FILE.wc_str(), vfs.Resolve("\\temp\\temp.tmp").wc_str());
 		}
 
 	};

@@ -13,30 +13,30 @@ namespace FileIO::Common {
 	
 	/// This class is a smarter pointer. It deletes the content once this class gets destoryed.
 	/// hence the name burp!
-	class Burp
+	class BurpPointer
 	{
 
 	public:
 
-		Burp()
+		BurpPointer()
 		{
 			object = nullptr;
 			deleter = [](T obj) {};
 		}
 
-		Burp(T pointer)
+		BurpPointer(T pointer)
 		{
 			object = pointer;
 			this->deleter = [](T obj) { if (is_pointer<T>().value) delete obj; };
 		}
 
-		Burp(T pointer, std::function<void(T)> deletef)
+		BurpPointer(T pointer, std::function<void(T)> deletef)
 		{
 			object = pointer;
 			this->deleter = [deletef](T obj) { deletef(obj); };
 		}
 
-		~Burp()
+		~BurpPointer()
 		{
 			cleanup();
 		}

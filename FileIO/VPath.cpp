@@ -11,7 +11,7 @@ namespace FileIO {
 
 	VPath VPath::dotdot()
 	{
-		size_t lastDir = m_path.find_last_of(SLASH);
+		size_t lastDir = m_path.find_last_of(FILEIO_SLASH);
 		return lastDir == 0 ? "\\" : m_path.substr(0, lastDir);
 	}
 
@@ -20,7 +20,7 @@ namespace FileIO {
 		path = removeTrailingSlash(path);
 		m_path = path;
 		m_root = path == "" ||
-			(path.find_last_of(SLASH) == 0);
+			(path.find_last_of(FILEIO_SLASH) == 0);
 	}
 
 	VPath VPath::Combine(VPath left, VPath right)
@@ -31,9 +31,9 @@ namespace FileIO {
 
 	Path FileIO::VPath::resolvePath()
 	{
-		Burp<FileSystem*> fs(FileSystem::get());
+		BurpPointer<FileSystem*> fs(FileSystem::get());
 		Path path = VFS::Get()->Resolve(*this);
-		fs->resolve(path);
+		fs->resolvePath(path);
 		return path;
 	}
 }

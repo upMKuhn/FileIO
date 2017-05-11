@@ -1,18 +1,13 @@
 #pragma once
 
 
-namespace FileIO::Common {
 #ifdef _WIN32
-#define WINDOWS true
-#define SLASH '\\'
+	#define FILEIO_WINDOWS true
+	#define FILEIO_SLASH '\\'
 #else
-#define WINDOWS false
-#define SLASH '/'
-
-#endif // _WIN32
-
-}
-
+	#define FILEIO_WINDOWS false
+	#define FILEIO_SLASH '/'
+#endif //windows
 
 #ifdef _DEBUG
 const bool DEBUG = true;

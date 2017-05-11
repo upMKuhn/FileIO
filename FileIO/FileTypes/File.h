@@ -3,7 +3,7 @@ namespace FileIO {
 	#include <FileIO\FileTypes\FileTypes.h>
 	#include <streambuf>
 	class VPath;
-	class File : public VPath
+	class FILEIO_API File : public VPath
 	{
 	public:
 		File() {};

@@ -4,7 +4,7 @@
 
 namespace FileIO {
 	
-	class Path {
+	class FILEIO_API Path {
 	public: 
 		Path() {}
 		Path(std::string path) { setPath(path); };
@@ -24,7 +24,7 @@ namespace FileIO {
 		inline void operator=(const Path& newdata) { setPath(newdata.m_path); }
 		inline void operator=(const std::wstring& newdata) { setPath(newdata); }
 		friend bool operator<(const Path& lhs, const Path& rhs) { return lhs.m_path.size() < rhs.m_path.size(); }
-
+		bool equals(Path& other);
 
 		Path& operator=(std::string data)
 		{setPath(data); return *this;}
@@ -42,7 +42,9 @@ namespace FileIO {
 		std::wstring towstring() { return m_wpath; }
 
 		virtual const char * c_str() { return m_path.c_str(); }
+		virtual const wchar_t * wc_str() { return m_wpath.c_str(); }
 
+		
 
 		Path Combine(Path right) { setPath(Combine(m_path, right).m_path); return *this; }
 		static Path Combine(Path left, Path right);

@@ -7,7 +7,7 @@ namespace FileIO
 	class Path;
 	class File;
 	
-	class FileSystem abstract {
+	class FILEIO_API FileSystem abstract {
 	public:
 		virtual bool exsists(Path path) abstract;
 		virtual std::string platform() abstract;
@@ -18,7 +18,7 @@ namespace FileIO
 		
 		virtual bool deleteFile(Path path) abstract;
 		
-		virtual bool resolve(Path& path) abstract;
+		virtual bool resolvePath(Path& path) abstract;
 		virtual std::vector<File> lsFiles(Path path) abstract;
 
 		virtual void getFileInfo(File& path) abstract;
@@ -30,9 +30,10 @@ namespace FileIO
 		virtual bool readTextFileToEnd(Path p, std::string& container) abstract;
 		virtual bool writeTextFile(Path p, std::string& content) abstract;
 
-
+		//Use Stubbed File system or not?
+		enum FileSystemMode { FS_MODE_MEMORY = 1, FS_MODE_PHYSICAL = 2};
+		static void FileSystem::setMode(FileSystemMode mode);
 		static FileSystem* FileSystem::get();
-		
 	};
 
 }

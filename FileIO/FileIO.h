@@ -2,7 +2,6 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <FileIO\Common\Dependencies\Windows\dirent.h>
 #include <FileIO\Common\Common.h>
 #include <FileIO\Path.h>
 #include <FileIO\VPath.h>

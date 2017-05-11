@@ -13,7 +13,7 @@ namespace OpenCLFrameTests
 	TEST_CLASS(WindowsFileSystemTests_IO_UNIT_TEST)
 	{
 	public:
-		static Burp<FileSystem*> fs;
+		static BurpPointer<FileSystem*> fs;
 
 
 
@@ -77,7 +77,7 @@ namespace OpenCLFrameTests
 		{
 			Path EnviormentVar = "%ProgramData%\\dir";
 			const char* EXPANDED_PATH = "C:\\ProgramData\\dir";
-			fs->resolve(EnviormentVar);
+			fs->resolvePath(EnviormentVar);
 			Assert::AreEqual(EXPANDED_PATH, EnviormentVar);
 		}
 		
@@ -94,5 +94,5 @@ namespace OpenCLFrameTests
 		}
 	};
 
-	Burp<FileSystem*> WindowsFileSystemTests_IO_UNIT_TEST::fs;
+	BurpPointer<FileSystem*> WindowsFileSystemTests_IO_UNIT_TEST::fs;
 }
