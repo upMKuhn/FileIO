@@ -5,4 +5,4 @@ platform: x86
 build:
   project: FileIO.sln
 test_script:
--  cmd: vstest.console /logger:Appveyor /inIsolation /platform:%Platform% %APPVEYOR_BUILD_FOLDER%\bin\%Configuration%\%Platform2%\FileIOTests.dll
+-  cmd: vstest.console /logger:Appveyor /inIsolation /platform:%Platform% %APPVEYOR_BUILD_FOLDER%\bin\%Configuration%\%PLATFORM%\FileIOTests.dll
