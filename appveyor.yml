@@ -1,0 +1,8 @@
+version: 0.1.{build}
+configuration:
+- Debug
+- Release
+- UnitTests
+platform: x86
+build:
+  project: FileIO.sln
