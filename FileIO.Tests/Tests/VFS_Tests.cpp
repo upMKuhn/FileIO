@@ -10,8 +10,8 @@ namespace OpenCLFrameTests
 	TEST_CLASS(VFS_Tests)
 	{
 	public:
-		const char * BASE_DIR = "C:\\unitTests";
-		const wchar_t * L_BASE_DIR = L"C:\\unitTests";
+		const char * BASE_DIR = "C:\\unitTests\\";
+		const wchar_t * L_BASE_DIR = L"C:\\unitTests\\";
 		const char * SUB_BASE_DIR = "C:\\unitTests\\subDir";
 
 		BurpPointer<FileSystem*> fs;
