@@ -4,4 +4,4 @@ configuration:
 - Release
 platform: x86
 build:
-project: FileIO.sln
+  project: FileIO.sln
