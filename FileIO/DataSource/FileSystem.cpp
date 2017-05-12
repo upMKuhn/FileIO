@@ -1,4 +1,5 @@
-#include <FileIO\FileIO.h>;
+#include <FileIO\FileIO.h>
+
 namespace FileIO {
 	FileSystem::FileSystemMode fileSystemMode;
 	void FileSystem::setMode(FileSystemMode mode)

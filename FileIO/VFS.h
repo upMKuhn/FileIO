@@ -1,10 +1,16 @@
 #pragma once
 #include "FileIO.h"
 #include "VPath.h"
+
+
+
 namespace FileIO
 {
-	class Path;
-	class VPath;
+	class FILEIO_API Path;
+	class FILEIO_API VPath;
+
+	template class FILEIO_API std::vector<Path>;
+	template class FILEIO_API std::map<VPath, std::vector<Path>>;
 
 	class FILEIO_API VFS {
 
@@ -22,4 +28,6 @@ namespace FileIO
 		bool validVirtualPath(VPath path);
 	};
 
+	
 }
+
