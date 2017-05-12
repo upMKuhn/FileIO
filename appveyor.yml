@@ -6,3 +6,9 @@ configuration:
 platform: x86
 build:
   project: FileIO.sln
+test_script:- cmd: >-
+    set Platform2=%Platform%
+
+    if %Platform2%==x86 set Platform2=Win32
+
+    vstest.console /logger:Appveyor /inIsolation /platform:%Platform% \bin\%Configuration%\%Platform2%\FileIOTests.dll
