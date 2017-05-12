@@ -1,8 +1,8 @@
 version: 0.1.{build}
 configuration:
-- Debug
-- Release
 - UnitTests
 platform: x86
 build:
   project: FileIO.sln
+test_script:
+-  cmd: vstest.console /logger:Appveyor /inIsolation /platform:%Platform% %APPVEYOR_BUILD_FOLDER%\bin\%Configuration%\%PLATFORM%\FileIOTests.dll
