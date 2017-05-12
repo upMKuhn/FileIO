@@ -11,7 +11,7 @@ namespace OpenCLFrameTests
 	{
 	public:
 		const char * BASE_DIR = "C:\\unitTests\\";
-		const wchar_t * L_BASE_DIR = L"C:\\unitTests\\";
+		const wchar_t * L_BASE_DIR = L"C:\\unitTests";
 		const char * SUB_BASE_DIR = "C:\\unitTests\\subDir";
 
 		BurpPointer<FileSystem*> fs;
