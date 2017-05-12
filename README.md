@@ -1,5 +1,5 @@
 # FileIO
-
+[![Build Tests](https://ci.appveyor.com/api/projects/status/85f5tqwhw8cdhbmu?svg=true)](https://ci.appveyor.com/project/upMKuhn/fileio)
 My Virtual filesystem library.
 
 Done :
