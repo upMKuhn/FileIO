@@ -79,7 +79,7 @@ namespace FileIO {
 
 		wstring strOther = stringToLower(other.towstring());
 		wstring strMe = stringToLower(other.towstring());
-		return strMe.compare(strOther);
+		return strMe.compare(strOther) != 0;
 	}
 
 }

@@ -1,8 +1,8 @@
 #pragma once
 namespace FileIO {
-	#include <FileIO\FileTypes\FileTypes.h>
+	#include <FileIO\VPath.h>
+	#include "FileTypesEnums.h"
 	#include <streambuf>
-	class VPath;
 	class FILEIO_API File : public VPath
 	{
 	public:
