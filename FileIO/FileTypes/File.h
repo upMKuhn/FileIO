@@ -1,8 +1,10 @@
 #pragma once
+#include <streambuf>	
+#include <FileIO\VPath.h>
+
 namespace FileIO {
-	#include <FileIO\FileTypes\FileTypes.h>
-	#include <streambuf>
-	class VPath;
+	enum FlushOption {FLUSH_MANUAL, AUTO_FLUSH};
+
 	class FILEIO_API File : public VPath
 	{
 	public:

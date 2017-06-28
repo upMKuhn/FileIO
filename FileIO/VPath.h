@@ -1,5 +1,6 @@
 #pragma once
-#include <FileIO\FileIO.h>
+#include <string>
+#include "Path.h"
 
 namespace FileIO {
 
