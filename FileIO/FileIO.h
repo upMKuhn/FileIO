@@ -2,6 +2,7 @@
 
 #pragma warning( disable : 4793)
 #pragma warning( disable : 4251)
+
 #include <string>
 #include <map>
 #include <vector>

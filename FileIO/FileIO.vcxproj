@@ -137,7 +137,6 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FILEIO_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <PreBuildEvent>
       <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
@@ -153,7 +152,6 @@ xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FILEIO_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <PreBuildEvent>
       <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
@@ -169,7 +167,6 @@ xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FILEIO_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <PreBuildEvent>
       <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
@@ -185,7 +182,6 @@ xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FILEIO_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <PreBuildEvent>
       <Command>xcopy "$(ProjectDir)*.h" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /ysi
@@ -203,7 +199,6 @@ xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FILEIO_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -223,7 +218,6 @@ xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FILEIO_PROJECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -249,7 +243,6 @@ xcopy "$(ProjectDir)*.hpp" "$(SolutionDir)bin\$(Configuration)\include\FileIO" /
     <ClInclude Include="DataSource\WindowsFilesys.h" />
     <ClInclude Include="FileTypes\File.h" />
     <ClInclude Include="FileTypes\FileTypes.h" />
-    <ClInclude Include="FileTypes\FileTypesEnums.h" />
     <ClInclude Include="FileTypes\TextFile.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="Path.h" />

@@ -1,7 +1,6 @@
 #pragma once
 #include "FileTypes.h"
 namespace FileIO {
-
 	class FILEIO_API TextFile : public File
 	{
 	public:
