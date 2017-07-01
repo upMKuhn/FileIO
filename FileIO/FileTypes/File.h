@@ -2,8 +2,10 @@
 #include <streambuf>	
 #include <FileIO\VPath.h>
 
+enum FlushOption { FLUSH_MANUAL, AUTO_FLUSH };
+
 namespace FileIO {
-	enum FlushOption {FLUSH_MANUAL, AUTO_FLUSH};
+
 
 	class FILEIO_API File : public VPath
 	{
