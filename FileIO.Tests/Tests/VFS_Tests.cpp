@@ -82,5 +82,10 @@ namespace OpenCLFrameTests
 			Assert::AreEqual(EXPECTED_FILE.wc_str(), vfs.Resolve("\\temp\\temp.tmp").wc_str());
 		}
 
+		TEST_METHOD(exsits_implemented) {
+			VFS::exsists(BASE_DIR);
+			Assert::IsTrue(true);
+		}
+
 	};
 }

@@ -90,37 +90,37 @@ namespace FileIO
 
 	bool VFS::exsists(Path path)
 	{
-		return VFS::Get()->exsists(path);
+		return FileSystem::get()->exsists(path);
 	}
 
 	bool VFS::isDirectory(Path path)
 	{
-		return VFS::Get()->isDirectory(path);
+		return FileSystem::get()->isDirectory(path);
 	}
 
 	bool VFS::mkDir(Path path)
 	{
-		return VFS::Get()->mkDir(path);
+		return FileSystem::get()->mkDir(path);
 	}
 
 	bool VFS::mkFile(Path path)
 	{
-		return VFS::Get()->mkDir(path);
+		return FileSystem::get()->mkDir(path);
 	}
 
 	bool VFS::deleteFile(Path path)
 	{
-		return VFS::Get()->deleteFile(path);
+		return FileSystem::get()->deleteFile(path);
 	}
 
 	bool VFS::resolvePath(Path& path)
 	{
-		return VFS::Get()->resolvePath(path);
+		return FileSystem::get()->resolvePath(path);
 	}
 
 	std::vector<File> VFS::lsFiles(Path path)
 	{
-		return VFS::Get()->lsFiles(path);
+		return FileSystem::get()->lsFiles(path);
 	}
 
 	void VFS::getFileInfo(File & path)
@@ -130,21 +130,22 @@ namespace FileIO
 
 	File VFS::getFileInfo(Path path)
 	{
-		return VFS::Get()->getFileInfo(path);
+		return FileSystem::get()->getFileInfo(path);
 	}
 
 	bool VFS::dirExsists(Path & p)
 	{
-		return VFS::Get()->dirExsists(p);
+		return FileSystem::get()->dirExsists(p);
 	}
 
 	bool VFS::readTextFileToEnd(Path p, std::string & container)
 	{
-		return VFS::Get()->readTextFileToEnd(p, container);
+		return FileSystem::get()->readTextFileToEnd(p, container);
 	}
 
-	bool VFS::writeTextFile(Path p, std::string & content)
+	bool FileIO::VFS::writeTextFile(Path p, std::string & content)
 	{
-		return VFS::Get()->writeTextFile(p, content);
+		return FileSystem::get()->writeTextFile(p, content);
+		;
 	}
 }
